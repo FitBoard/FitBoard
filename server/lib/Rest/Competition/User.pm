@@ -24,7 +24,7 @@ sub GET {
 	my ($self, $env, $id) = @_;
 
 	my $login = $env->{'psgix.session'}{user_id};
-	HTTP::Exception::403->throw(message=>"Forbidden") unless $login;
+#	HTTP::Exception::403->throw(message=>"Forbidden") unless $login;
 	my $login_info = $self->auth->getUser($env, $login);
 
 	my $userid = $env->{'rest.userid'};
@@ -32,7 +32,7 @@ sub GET {
 
 	if ($userid){
 		my $user;
-		if (defined $login_info->{admin} || $userid eq $login){
+		if (($login_info && defined $login_info->{admin}) || $userid eq $login){
 			$user = $self->start->getUser($env, $userid);
 		}
 
@@ -44,11 +44,11 @@ sub GET {
 	}else{
 
 		my $users = [];
-		if ($login_info->{admin}){
+#		if ($login_info->{admin}){
 			$users = $self->start->getAllUsers($env);
-		}else{
-			$users = $self->start->getAllUsers($env,{login=>$login});
-		}
+#		}else{
+#			$users = $self->start->getAllUsers($env,{login=>$login});
+#		}
 
 		my $link = []; my $count = {};
 		my $user_list = [];
@@ -190,6 +190,9 @@ sub GET {
 sub POST {
 	my ($self, $env, $params, $data) = @_;
 
+	my $l = $env->{'psgix.session'}{user_id};
+	HTTP::Exception::403->throw(message=>"Forbidden") unless $l;
+
 	if (!$data || ref $data ne 'HASH'){
 		HTTP::Exception::400->throw(message=>"Bad request");
 	}
@@ -237,6 +240,9 @@ sub POST {
 sub PUT {
 	my ($self, $env, $params, $data) = @_;
 
+	my $login = $env->{'psgix.session'}{user_id};
+	HTTP::Exception::403->throw(message=>"Forbidden") unless $login;
+
 	my $userid = $env->{'rest.userid'};
 	return HTTP::Exception::400->throw(message=>"Bad request") unless $userid;
 
@@ -254,6 +260,9 @@ sub PUT {
 
 sub DELETE {
 	my ($self, $env, $params, $data) = @_;
+
+	my $login = $env->{'psgix.session'}{user_id};
+	HTTP::Exception::403->throw(message=>"Forbidden") unless $login;
 
 	my $userid = $env->{'rest.userid'};
 	return HTTP::Exception::405->throw(message=>"Bad request") unless $userid;
