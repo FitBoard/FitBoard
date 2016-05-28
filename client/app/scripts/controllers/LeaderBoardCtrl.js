@@ -118,58 +118,58 @@ angular.module('FitBoard').controller('LeaderBoardCtrl', function($scope, Api) {
 		 } else if(($scope.wod.substring(0,4) === 'qual' && athlete.qualified === 0)
 		 				//CUT1 OPEN MEN
 		 				|| ($scope.category === 'open' && $scope.sex === 'male'
-		 						&& ($scope.wod === 'wod1' || $scope.wod === 'wod2' || $scope.wod === 'wod3' || $scope.wod === 'OV_1') && place > 56)
+		 						&& ($scope.wod === 'OV_1') && place > 56)
 		 				//CUT1 OPEN WOMEN
 		 				|| ($scope.category === 'open' && $scope.sex === 'female'
-		 						&& ($scope.wod === 'wod1' || $scope.wod === 'wod2' || $scope.wod === 'wod3' || $scope.wod === 'OV_1') && place > 42)
+		 						&& ($scope.wod === 'OV_1') && place > 42)
 		 				//CUT1 MASTERS MEN
 		 				|| ($scope.category === 'masters' && $scope.sex === 'male'
-		 						&& ($scope.wod === 'wod1' || $scope.wod === 'wod2' || $scope.wod === 'wod3' || $scope.wod === 'OV_1') && place > 14)
+		 						&& ($scope.wod === 'OV_1') && place > 14)
 		 				//CUT1 ELITE MEN
 		 				|| ($scope.category === 'elite' && $scope.sex === 'male'
-		 						&& ($scope.wod === 'wod1' || $scope.wod === 'wod2' || $scope.wod === 'wod3' || $scope.wod === 'OV_1') && place > 42)
+		 						&& ($scope.wod === 'OV_1') && place > 42)
 		 				//CUT2 OPEN MEN
 		 				|| ($scope.category === 'open' && $scope.sex === 'male'
-		 						&& ($scope.wod === 'wod4' || $scope.wod === 'OV_2') && place > 28)
+		 						&& ($scope.wod === 'OV_2') && place > 28)
 		 				//CUT2 OPEN WOMEN
 		 				|| ($scope.category === 'open' && $scope.sex === 'female'
-		 						&& ($scope.wod === 'wod4' || $scope.wod === 'OV_2') && place > 28)
+		 						&& ($scope.wod === 'OV_2') && place > 28)
 		 				//CUT2 MASTERS MEN
 		 				|| ($scope.category === 'masters' && $scope.sex === 'male'
-		 						&& ($scope.wod === 'wod4' || $scope.wod === 'OV_2') && place > 14)
+		 						&& ($scope.wod === 'OV_2') && place > 14)
 		 				//CUT2 ELITE MEN
 		 				|| ($scope.category === 'elite' && $scope.sex === 'male'
-		 						&& ($scope.wod === 'wod4' || $scope.wod === 'OV_2') && place > 24)
+		 						&& ($scope.wod === 'OV_2') && place > 24)
 		 				//CUT3 OPEN MEN
 		 				|| ($scope.category === 'open' && $scope.sex === 'male'
-		 						&& ($scope.wod === 'wod5' || $scope.wod === 'OV_3') && place > 10)
+		 						&& ($scope.wod === 'OV_3') && place > 10)
 		 				//CUT3 OPEN WOMEN
 		 				|| ($scope.category === 'open' && $scope.sex === 'female'
-		 						&& ($scope.wod === 'wod5' || $scope.wod === 'OV_3') && place > 10)
+		 						&& ($scope.wod === 'OV_3') && place > 10)
 		 				//CUT3 MASTERS MEN
 		 				|| ($scope.category === 'masters' && $scope.sex === 'male'
-		 						&& ($scope.wod === 'wod5' || $scope.wod === 'OV_3') && place > 10)
+		 						&& ($scope.wod === 'OV_3') && place > 10)
 		 				//CUT3 ELITE MEN
 		 				|| ($scope.category === 'elite' && $scope.sex === 'male'
-		 						&& ($scope.wod === 'wod5' || $scope.wod === 'OV_3') && place > 10)
+		 						&& ($scope.wod === 'OV_3') && place > 10)
 		 				//CUT3 ELITE WOMEN
 		 				|| ($scope.category === 'elite' && $scope.sex === 'female'
-		 						&& ($scope.wod === 'wod5' || $scope.wod === 'OV_3') && place > 10)
+		 						&& ($scope.wod === 'OV_3') && place > 10)
 		 				//FINALS OPEN MEN
 		 				|| ($scope.category === 'open' && $scope.sex === 'male'
-		 						&& ($scope.wod === 'wod6' || $scope.wod === 'OV_4') && place > 10)
+		 						&& ($scope.wod === 'OV_4') && place > 10)
 		 				//FINALS OPEN WOMEN
 		 				|| ($scope.category === 'open' && $scope.sex === 'female'
-		 						&& ($scope.wod === 'wod6' || $scope.wod === 'OV_4') && place > 10)
+		 						&& ($scope.wod === 'OV_4') && place > 10)
 		 				//FINALS MASTERS MEN
 		 				|| ($scope.category === 'masters' && $scope.sex === 'male'
-		 						&& ($scope.wod === 'wod6' || $scope.wod === 'OV_4') && place > 10)
+		 						&& ($scope.wod === 'OV_4') && place > 10)
 		 				//FINALS ELITE MEN
 		 				|| ($scope.category === 'elite' && $scope.sex === 'male'
-		 						&& ($scope.wod === 'wod6' || $scope.wod === 'OV_4') && place > 10)
+		 						&& ($scope.wod === 'OV_4') && place > 10)
 		 				//FINALS ELITE WOMEN
 		 				|| ($scope.category === 'elite' && $scope.sex === 'female'
-		 						&& ($scope.wod === 'wod6' || $scope.wod === 'OV_4') && place > 10)
+		 						&& ($scope.wod === 'OV_4') && place > 10)
 		 				 )	{
 			return 'mainRowDNQ';
 		} else {
