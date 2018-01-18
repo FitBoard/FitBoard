@@ -36,7 +36,7 @@ sub GET {
 }
 
 sub POST {
-	my ($self, $env, $params, $data) = @_;
+	my ($self, $env, $data) = @_;
 
 	my $session = Plack::Session->new($env);
 	my $goto = GetGoto($env);

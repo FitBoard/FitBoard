@@ -86,6 +86,8 @@ sub getUser {
 
 sub getAllUsers {
 	my ($self, $env, $constr, $proj, $sort) = @_;
+use Data::Dumper;
+print STDERR "ALL: ".Dumper($constr, $proj, $sort);
 
 	# Check user
 	my $resp = $self->data->getAll( $constr, $proj, $sort );
